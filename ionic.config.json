@@ -1,0 +1,7 @@
+{
+  "name": "footballtracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
