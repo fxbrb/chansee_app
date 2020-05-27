@@ -34,8 +34,8 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
-      
+    this.afAuth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
+      console.log("hello");
     }, (err) => {
       alert(err);
     })

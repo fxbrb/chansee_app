@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +8,7 @@ import { auth } from 'firebase/app';
 })
 export class RegisterPage implements OnInit {
 
-  username: string = ""
+  email: string = ""
   password: string = ""
   cpassword: string = ""
 
@@ -20,12 +19,19 @@ export class RegisterPage implements OnInit {
   }
 
   register() {
-    const { username, password, cpassword } = this
+    const { email, password, cpassword } = this
     if(password !== cpassword){
       return console.error("Passwords don't match")
     }
+    try {
+      const res = this.afAuth.createUserWithEmailAndPassword(email, password)
+      console.log(res)
+    } catch(error) {
+      console.dir(error)
+    }
+    
 
-    const res = this.afAuth.auth
+    
   }
 
 }

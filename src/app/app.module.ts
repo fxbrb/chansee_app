@@ -16,12 +16,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import firebaseConfig from "./firebase";
 import { LoginPage } from './login/login.page';
 import { RegisterPage } from './register/register.page';
+import { SearchPage } from './search/search.page';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    SearchPage,
   ],
   entryComponents: [],
   imports: [
@@ -30,7 +33,8 @@ import { RegisterPage } from './register/register.page';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
