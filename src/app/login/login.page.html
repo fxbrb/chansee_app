@@ -1,24 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <h1>Connexion</h1>
+  <h5>Veuillez vous connecter pour continuer à utiliser notre application.</h5>
   <ion-list>
     <ion-item>
-      <ion-label position="floating">email</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="email" placeholder="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" placeholder="password"></ion-input>
     </ion-item>
   </ion-list>
 
-  <ion-button fill="solid" expand="block" color="dark" (click)="login()">Login</ion-button>
+  <ion-button fill="solid" expand="block" color="primary" (click)="login()">Connexion</ion-button>
 
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
+
