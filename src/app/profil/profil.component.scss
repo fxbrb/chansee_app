@@ -1,0 +1,53 @@
+ion-content {
+    --ion-background-color: #5BEADF!important;
+}
+ion-tab-bar, ion-tab-button{
+    border: none;
+    background-color: #5BEADF;
+}
+ion-icon{
+    color: white;
+    width: 35px;
+    height: 35px;
+}
+
+
+.role span {
+    background-color: rgba(255, 255, 255, 0.185);
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.header ion-button {
+    position: absolute;
+    margin-top: 415px;
+    margin-left: 115px;
+    width: 60px;
+    height: 60px;
+}
+
+.description{
+    margin-top: 60px;
+}
+.name{
+    margin-left: 20px;
+}
+
+.perso {
+    display: flex;
+    justify-content: space-around;
+    font-size: 13px;
+}
+
+.apropos{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
