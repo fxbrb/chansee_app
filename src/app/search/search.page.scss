@@ -27,6 +27,7 @@ background-color: white;
 }
 
 .btn ion-button{
+  
     width: 65px;
     margin-left: 140px;
     height: 65px;
@@ -47,12 +48,13 @@ background-color: white;
     font-size: 30px;
     --border-radius: 50%;
     --border-width: 8px;
-    --border-color: #f3f3f3;
+    --border-color: #e7e7e7;
     --padding-start: 15px;
     --padding-end: 15px;
     margin-right: -10px;
     margin-left: -10px;
-    --background-activated: #f3f3f3;
+    --background: #f3f3f3;
+    --background-activated: #5BEADF;
   }
   .space {
     width: 50px;

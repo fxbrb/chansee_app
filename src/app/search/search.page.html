@@ -4,12 +4,12 @@
     <ion-card-title [style.color]="'black'">Plus de Match disponible</ion-card-title>
 </ion-card>
 
-  <ion-card *ngFor="let p of people">
+  <ion-card *ngFor="let match of matchs">
 
-    <img [src]="p.image" [style.width]="'100%'">
+    <img [src]="match.image" [style.width]="'100%'">
 
     <ion-card-header>
-      <ion-card-title [style.color]="'black'"> {{p.name}} </ion-card-title>
+      <ion-card-title [style.color]="'black'"> {{match.name}} </ion-card-title>
     </ion-card-header>
 
   </ion-card>
@@ -19,11 +19,11 @@
 
   <div class="button_box">
 
-    <ion-button  mode="ios" class="large_button" shape="round" fill="outline" >
+    <ion-button (click)="swipeleft()" mode="ios" class="large_button" shape="round" fill="outline" >
       <ion-icon color="danger" name="close"></ion-icon>
     </ion-button>
     <div class="space"></div>
-    <ion-button  mode="ios" class="large_button" shape="round" fill="outline">
+    <ion-button (click)="swiperight()" mode="ios" class="large_button" shape="round" fill="outline">
       <ion-icon color="success" name="checkmark-outline"></ion-icon>
     </ion-button>
 

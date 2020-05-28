@@ -15,26 +15,7 @@ import { IonCard, GestureController, Platform } from '@ionic/angular';
 })
 export class SearchPage implements AfterViewInit{
 
-  people = [
-    {
-      name: '6V6 PARIS 16',
-      image: '../../assets/img/terrain1.png',
-      power : 0
-    },
-    {
-      name: '10v10 Paris 18',
-      image: '../../assets/img/terrain1.png',
-      power : 0
-    },
-    {
-      name: '10v10 Paris 17',
-      image: '../../assets/img/terrain1.png',
-      power : 0
-    }, 
-  ];
-
   @ViewChildren(IonCard, {read: ElementRef}) cards: QueryList<ElementRef>;
-  longPressActive = false;
 
   constructor(private gestureCtrl: GestureController, private zone: NgZone, private plt: Platform) {}
 
@@ -46,13 +27,13 @@ export class SearchPage implements AfterViewInit{
   useSwipe(cardArray) {
     for (let i = 0; i < cardArray.length; i++){
       const card = cardArray[i];
-      console.log('card', card);
+      // console.log('card', card);
 
       const gesture = this.gestureCtrl.create({
         el: card.nativeElement,
         gestureName: 'swip',
         onStart: ev=>{
-          
+
         },
         onMove: ev => {
          card.nativeElement.style.transform = `translateX(${ev.deltaX}px) rotate(${ev.deltaX / 10}deg)`; 
@@ -61,9 +42,9 @@ export class SearchPage implements AfterViewInit{
         onEnd: ev => {
           card.nativeElement.style.transition= '.5s ease-out';
 
-          if(ev.deltaX > 150) {
+          if(ev.deltaX > 200) {
             card.nativeElement.style.transform = `translateX(${+this.plt.width() * 2}px) rotate(${ev.deltaX / 2}deg)`;
-          } else if (ev.deltaX < -150) {
+          } else if (ev.deltaX < -200) {
             card.nativeElement.style.transform = `translateX(${-this.plt.width() * 2}px) rotate(${ev.deltaX / 2}deg)`;
           } else {
             card.nativeElement.style.transform = '';
@@ -72,6 +53,27 @@ export class SearchPage implements AfterViewInit{
       });
 
       gesture.enable(true)
+    }
+  }
+
+  swipeleft() {
+    const cardArray = this.cards.toArray();
+    for (let i = 0; i < cardArray.length; i++){
+      const card = cardArray[i];
+      card.nativeElement.style.transition= '.5s ease-out';
+      card.nativeElement.style.transform = `translateX(${-this.plt.width() * 2}px) `;
+
+    }
+  }
+  
+
+  swiperight() {
+    const cardArray = this.cards.toArray();
+    for (let i = 0; i < cardArray.length; i++){
+      const card = cardArray[i];
+      card.nativeElement.style.transition= '.5s ease-out';
+      card.nativeElement.style.transform = `translateX(${+this.plt.width() * 2}px)`;
+
     }
   }
 
@@ -100,5 +102,39 @@ export class SearchPage implements AfterViewInit{
 
     return hex;
   }
+
+  matchs = [
+    {
+      name: '6V6 PARIS 16',
+      image: '../../assets/img/terrain1.png',
+    },
+    {
+      name: '10v10 Paris 18',
+      image: '../../assets/img/terrain1.png',
+    },
+    {
+      name: '1v1 Paris 17',
+      image: '../../assets/img/terrain1.png',
+    },
+    {
+      name: '5v5 Paris 17',
+      image: '../../assets/img/terrain1.png',
+    },
+    {
+      name: '2v2 Paris 17',
+      image: '../../assets/img/terrain1.png',
+    },
+    {
+      name: '11v11 Paris 17',
+      image: '../../assets/img/terrain1.png',
+    },
+    {
+      name: '9v9 Paris 17',
+      image: '../../assets/img/terrain1.png',
+    },
+  ];
+
+
+
 
 }
