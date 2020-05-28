@@ -1,7 +1,24 @@
 ion-content {
     --ion-background-color: #5BEADF!important;
 }
-
+ion-card{
+  position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+width: 90%;
+background-color: white;
+}
+.done{
+  width: 50%;
+  height: 10%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
 .btn{
     margin-top: 650px;
     display: flex;
@@ -39,67 +56,4 @@ ion-content {
   }
   .space {
     width: 50px;
-  }
-
-  sw-card-wrapper {
-    height: 550px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-  }
-
-  .card {
-    box-shadow: 0px 1px 3px #e6e6e6;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    overflow: hidden;
-    position: absolute;
-    background-color: white;
-  }
-  .card img{
-    height: 450px;
-    min-width: 100%;
-    max-width: none;
-  }
-  .card h2{
-    color: black;
-    background-color: white;
-    font-size: 20px;
-    margin: 10px 15px;
-  }
-
-  .visible {
-    display: block;
-  }
-  .hidden {
-    display: none;
-  }
-
-  .card_bg_box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .card_bg_1 {
-    position: absolute;
-    box-shadow: 0px 1px 4px #cecece;
-    background-color: white;
-    height: 481px;
-    width: 340px;
-    top: 50px;
-    border-radius: 10px;
-    z-index: 1;
-  }
-  .card_bg_2 {
-    position: absolute;
-    box-shadow: 0px 1px 4px #cecece;
-    background-color: white;
-    height: 481px;
-    width: 330px;
-    top: 55px;
-    border-radius: 10px;
-    z-index: 0;
   }

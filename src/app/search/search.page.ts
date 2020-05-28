@@ -1,70 +1,104 @@
-import { Component } from '@angular/core';
+import { 
+  Component, 
+  AfterViewInit, 
+  ViewChildren,
+  ElementRef,
+  QueryList,
+  NgZone
+} from '@angular/core';
+import { IonCard, GestureController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-search',
   templateUrl: 'search.page.html',
   styleUrls: ['search.page.scss']
 })
-export class SearchPage {
+export class SearchPage implements AfterViewInit{
 
-  currentIndex: number;
-  results = [];
-  avatars = [
+  people = [
     {
-      name: 'Barack Obama',
-      age: 58,
+      name: '6V6 PARIS 16',
       image: '../../assets/img/terrain1.png',
-      visible: true
+      power : 0
     },
     {
-      name: 'Elon Musk',
-      age: 48,
+      name: '10v10 Paris 18',
       image: '../../assets/img/terrain1.png',
-      visible: true
+      power : 0
     },
     {
-      name: 'Jeff Bezos',
-      age: 56,
+      name: '10v10 Paris 17',
       image: '../../assets/img/terrain1.png',
-      visible: true
-    },
-    {
-      name: 'Beyonce',
-      age: 38,
-      image: '../../assets/img/terrain1.png',
-      visible: true
-    },
-    {
-      name: 'Eminem',
-      age: 47,
-      image: '../../assets/img/terrain1.png',
-      visible: true
-    }
+      power : 0
+    }, 
   ];
 
-  constructor() {
-    this.currentIndex = this.avatars.length - 1;
-    console.log(this.currentIndex);
+  @ViewChildren(IonCard, {read: ElementRef}) cards: QueryList<ElementRef>;
+  longPressActive = false;
+
+  constructor(private gestureCtrl: GestureController, private zone: NgZone, private plt: Platform) {}
+
+  ngAfterViewInit() {
+    const cardArray = this.cards.toArray();
+    this.useSwipe(cardArray);
   }
 
-  swiped(event: any, index: number) {
-    console.log(this.avatars[index].name + ' swiped ' + event);
-    this.avatars[index].visible = false;
-    this.results.push(this.avatars[index].name + ' swiped ' + event);
-    this.currentIndex--;
+  useSwipe(cardArray) {
+    for (let i = 0; i < cardArray.length; i++){
+      const card = cardArray[i];
+      console.log('card', card);
+
+      const gesture = this.gestureCtrl.create({
+        el: card.nativeElement,
+        gestureName: 'swip',
+        onStart: ev=>{
+          
+        },
+        onMove: ev => {
+         card.nativeElement.style.transform = `translateX(${ev.deltaX}px) rotate(${ev.deltaX / 10}deg)`; 
+         this.setCardColor(ev.deltaX, card.nativeElement);
+        },
+        onEnd: ev => {
+          card.nativeElement.style.transition= '.5s ease-out';
+
+          if(ev.deltaX > 150) {
+            card.nativeElement.style.transform = `translateX(${+this.plt.width() * 2}px) rotate(${ev.deltaX / 2}deg)`;
+          } else if (ev.deltaX < -150) {
+            card.nativeElement.style.transform = `translateX(${-this.plt.width() * 2}px) rotate(${ev.deltaX / 2}deg)`;
+          } else {
+            card.nativeElement.style.transform = '';
+          }
+        }
+      });
+
+      gesture.enable(true)
+    }
   }
 
+  setCardColor(x, element) { 
+    let color = '';
+    const abs = Math.abs(x);
+    const min = Math.trunc(Math.min(16 * 16 - abs, 16 * 16));
+    const hexCode = this.decimalToHex(min,2);
 
-  swipeleft() {
-    this.avatars[this.currentIndex].visible = false;
-    this.results.push(this.avatars[this.currentIndex].name + ' swiped false');
-    this.currentIndex--;
+    if (x<0){
+      color = '#FF' + hexCode + hexCode;
+    } else {
+      color = '#' + hexCode + 'FF' + hexCode;
+    }
+
+    element.style.background = color;
   }
 
-  swiperight() {
-    this.avatars[this.currentIndex].visible = false;
-    this.results.push(this.avatars[this.currentIndex].name + ' swiped true');
-    this.currentIndex--;
+  decimalToHex(d,padding) {
+    let hex = Number(d).toString(16);
+    padding = typeof padding === 'undefined' || padding === null ? (padding =2) : padding;
+
+    while (hex!.length < padding) {
+      hex = '0' + hex;
+    }
+
+    return hex;
   }
 
 }

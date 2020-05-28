@@ -1,40 +1,31 @@
 <ion-content>  
 
-  <sw-card-wrapper #cardWrapper>
-    <div class="card" *ngFor="let avatar of avatars, let index = index"
-      [class.visible]="avatar.visible" [class.hidden]="!avatar.visible"
-      swSwipeable
-      [width]="350"
-      [height]="500"
-      [orientation]="'x'"
-      (swiped)="swiped($event, index)">
-      <img [src]="avatar.image" [alt]="avatar.name">
-      <h2>{{avatar.name}}, {{avatar.age}}</h2>
-    </div>
-  </sw-card-wrapper>
+  <ion-card class='done'>
+    <ion-card-title [style.color]="'black'">Plus de Match disponible</ion-card-title>
+</ion-card>
 
+  <ion-card *ngFor="let p of people">
 
-  <div class="card_bg_box">
-    <div class="card_bg_1">
-      <ion-item  *ngFor="let result of results">
-        <ion-label>{{ result }}</ion-label>
-      </ion-item>
-    </div>
-    <div class="card_bg_2"></div>
-  </div>
+    <img [src]="p.image" [style.width]="'100%'">
+
+    <ion-card-header>
+      <ion-card-title [style.color]="'black'"> {{p.name}} </ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+
+  
 
 
   <div class="button_box">
 
-    <ion-button (click)="swipeleft()" mode="ios" class="large_button" shape="round" fill="outline" >
+    <ion-button  mode="ios" class="large_button" shape="round" fill="outline" >
       <ion-icon color="danger" name="close"></ion-icon>
     </ion-button>
     <div class="space"></div>
-    <ion-button (click)="swiperight()" mode="ios" class="large_button" shape="round" fill="outline">
+    <ion-button  mode="ios" class="large_button" shape="round" fill="outline">
       <ion-icon color="success" name="checkmark-outline"></ion-icon>
     </ion-button>
 
-  </div>
-  
- 
+  </div> 
 </ion-content>
