@@ -1,12 +1,12 @@
 import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SearchPage } from './search.page';
+import { ProfilPage } from './profil.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { SearchPageRoutingModule } from './search-routing.module'
-import { SwipeCardLibModule } from 'ng-swipe-card';
+import { ProfilPageRoutingModule } from '../profil/profil-routing.module'
 
 @NgModule({
   imports: [
@@ -14,9 +14,9 @@ import { SwipeCardLibModule } from 'ng-swipe-card';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    SearchPageRoutingModule,
-    SwipeCardLibModule,
+    RouterModule.forChild([{ path: '', component: ProfilPage }]),
+    ProfilPageRoutingModule,
   ],
-  declarations: [SearchPage]
+  declarations: [ProfilPage]
 })
-export class SearchPageModule {}
+export class ProfilPageModule {}

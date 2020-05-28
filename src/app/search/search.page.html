@@ -1,46 +1,40 @@
-<ion-content>
-  <ion-card>
-    <img src="../../assets/img/terrain1.png" />
-    <ion-card-header>
-      <ion-card-title>Match 6v6</ion-card-title>
-      <ion-card-subtitle>Chartres 28000</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-  <ion-card class="card1">
-    <img src="../../assets/img/terrain1.png" />
-    <ion-card-header>
-      <ion-card-title>Match 6v6</ion-card-title>
-      <ion-card-subtitle>Chartres 28000</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-  <ion-card class="card2">
-    <img src="../../assets/img/terrain1.png" />
-    <ion-card-header>
-      <ion-card-title>Match 6v6</ion-card-title>
-      <ion-card-subtitle>Chartres 28000</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
-  <div class="btn">
-    <ion-button shape="round" color="medium">
-      <ion-icon name="close-outline"></ion-icon>
-    </ion-button> 
-    <ion-button shape="round" color="medium">
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </ion-button>
-  </div>
-</ion-content>
+<ion-content>  
 
-<ion-tab-bar slot="bottom">
-  <ion-tab-button tab="profil">
-    <ion-icon name="person"></ion-icon>
-  </ion-tab-button>
-  <ion-tab-button tab="search">
-    <ion-icon name="search"></ion-icon>
-  </ion-tab-button>
-  <ion-tab-button tab="match">
-    <ion-icon name="football"></ion-icon>
-  </ion-tab-button>
-  <ion-tab-button tab="message">
-    <ion-icon name="chatbubble"></ion-icon>
-  </ion-tab-button>
-</ion-tab-bar>
+  <sw-card-wrapper #cardWrapper>
+    <div class="card" *ngFor="let avatar of avatars, let index = index"
+      [class.visible]="avatar.visible" [class.hidden]="!avatar.visible"
+      swSwipeable
+      [width]="350"
+      [height]="500"
+      [orientation]="'x'"
+      (swiped)="swiped($event, index)">
+      <img [src]="avatar.image" [alt]="avatar.name">
+      <h2>{{avatar.name}}, {{avatar.age}}</h2>
+    </div>
+  </sw-card-wrapper>
+
+
+  <div class="card_bg_box">
+    <div class="card_bg_1">
+      <ion-item  *ngFor="let result of results">
+        <ion-label>{{ result }}</ion-label>
+      </ion-item>
+    </div>
+    <div class="card_bg_2"></div>
+  </div>
+
+
+  <div class="button_box">
+
+    <ion-button (click)="swipeleft()" mode="ios" class="large_button" shape="round" fill="outline" >
+      <ion-icon color="danger" name="close"></ion-icon>
+    </ion-button>
+    <div class="space"></div>
+    <ion-button (click)="swiperight()" mode="ios" class="large_button" shape="round" fill="outline">
+      <ion-icon color="success" name="checkmark-outline"></ion-icon>
+    </ion-button>
+
+  </div>
+  
+ 
+</ion-content>
