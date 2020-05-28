@@ -16,6 +16,14 @@ const routes: Routes = [
         loadChildren: () => import('../profil/profil.module').then(m => m.ProfilPageModule)
       },
       {
+        path: 'match',
+        loadChildren: () => import('../match/match.module').then(m => m.MatchPageModule)
+      },
+      {
+        path: 'message',
+        loadChildren: () => import('../message/message.module').then(m => m.MessagePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/search',
         pathMatch: 'full'
