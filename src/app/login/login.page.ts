@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
+import { AngularFireDatabase } from '@angular/fire/database';
+
 @Component({
   selector: 'app-login',
   templateUrl: 'login.page.html',
@@ -13,8 +15,11 @@ export class LoginPage implements OnInit {
   password: string;
 
   constructor(
-    public afAuth: AngularFireAuth, public router: Router
-  ) {}
+    public afDB: AngularFireDatabase,
+    public afAuth: AngularFireAuth, 
+    public router: Router,
+  ) {
+  }
 
   ngOnInit() {
     this.afAuth.authState.subscribe(user =>
@@ -39,7 +44,5 @@ export class LoginPage implements OnInit {
       alert(err);
     })
   }
-
-
 
 }

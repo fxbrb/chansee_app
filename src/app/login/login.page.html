@@ -1,6 +1,10 @@
 <ion-content [fullscreen]="true">
   <h1>Connexion</h1>
   <h5>Veuillez vous connecter pour continuer à utiliser notre application.</h5>
+ 
+    <ion-button shape="round">
+      <ion-icon slot="start" name="logo-google"></ion-icon>
+    </ion-button>
   <ion-list>
     <ion-item>
       <ion-input [(ngModel)]="email" placeholder="email"></ion-input>
@@ -9,6 +13,8 @@
       <ion-input type="password" [(ngModel)]="password" placeholder="password"></ion-input>
     </ion-item>
   </ion-list>
+
+  <p>Vous n’avez pas de compte? <a href="http://localhost:8100/register">Inscrivez-vous</a></p>
 
   <ion-button fill="solid" expand="block" color="primary" (click)="login()">Connexion</ion-button>
 

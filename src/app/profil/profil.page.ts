@@ -1,4 +1,6 @@
 import { Component} from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profil',
@@ -7,6 +9,14 @@ import { Component} from '@angular/core';
 })
 export class ProfilPage {
 
-  constructor() {}
+  constructor(
+    public afAuth: AngularFireAuth, 
+    public router: Router,
+  ) {}
+
+  logout(){
+    this.afAuth.signOut();
+    this.router.navigateByUrl('login')
+  }
 
 }

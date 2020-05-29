@@ -18,6 +18,8 @@ import { LoginPage } from './login/login.page';
 import { RegisterPage } from './register/register.page';
 import { FormsModule } from '@angular/forms';
 
+import { Facebook } from '@ionic-native/facebook/ngx';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
+    Facebook,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
