@@ -1,0 +1,31 @@
+ion-content {
+    --ion-background-color: #5BEADF!important;
+}
+p {
+    text-align: center;
+  }
+p span.gauche {
+    float: left;
+  }
+p span.droite {
+    float: right;
+  }
+.image_gauche
+	{
+    margin: auto;
+    height: 40%;
+    width: 40%;
+    position: relative;
+    }
+.image_droite
+	{
+    margin: auto;
+    height: 40%;
+    width: 40%;
+    float: right;
+    }
+.text{
+    color: white;
+}
+
+    
