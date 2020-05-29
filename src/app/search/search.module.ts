@@ -6,7 +6,6 @@ import { SearchPage } from './search.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { SearchPageRoutingModule } from './search-routing.module'
-import { SwipeCardLibModule } from 'ng-swipe-card';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { SwipeCardLibModule } from 'ng-swipe-card';
     FormsModule,
     ExploreContainerComponentModule,
     SearchPageRoutingModule,
-    SwipeCardLibModule,
   ],
   declarations: [SearchPage]
 })
