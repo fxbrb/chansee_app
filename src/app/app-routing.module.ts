@@ -10,14 +10,7 @@ const routes: Routes = [
   },
 
   { path: 'login', component: LoginPage },
-  { path: 'register', component: RegisterPage },  {
-    path: 'message',
-    loadChildren: () => import('./message/message.module').then( m => m.MessagePageModule)
-  },
-  {
-    path: 'match',
-    loadChildren: () => import('./match/match.module').then( m => m.MatchPageModule)
-  },
+  { path: 'register', component: RegisterPage }  
 
 ];
 @NgModule({

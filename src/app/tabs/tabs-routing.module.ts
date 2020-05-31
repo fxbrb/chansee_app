@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../message/message.module').then(m => m.MessagePageModule)
       },
       {
+        path: 'actu',
+        loadChildren: () => import('../actu/actu.module').then( m => m.ActuPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/search',
         pathMatch: 'full'

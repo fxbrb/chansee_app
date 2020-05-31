@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
 
   login(){
     this.afAuth.signInWithEmailAndPassword(this.email, this.password).then((data) => {
-      this.router.navigateByUrl('search')
+      this.router.navigateByUrl('actu')
     }, (err) => {
       alert(err);
     })

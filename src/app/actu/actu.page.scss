@@ -1,0 +1,89 @@
+ion-content {
+    --ion-background-color: #5BEADF!important;
+}
+
+.main-profil img, .message img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.main{
+    margin: 10px auto auto;
+    width: 88%;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+}
+
+.main-title{
+    width: 70%;
+}
+.main-profil{
+    width: 30%;
+}
+
+h3{
+    font-size: 16px;;
+}
+hr {
+    border: 0.2px solid ;
+    height: 0.5px !important;
+    width: 90% !important;
+    background: white !important;
+    display: block !important;
+    font-size: 2em !important;
+    opacity: 0.5 !important;
+    visibility: visible !important;
+}
+
+.search .near .top img{
+    margin: auto;
+    padding: 5px;
+    height: 170px;
+}
+
+.bottom {
+    margin: auto;
+    text-align: center;
+}
+.bottom ion-button{
+    margin: auto auto;
+    justify-content: center;
+    
+    --ion-color-contrast: #5BEADF!important;
+
+}
+.message{
+    display: flex;
+    flex-direction: row;
+}
+
+.message .message-img {
+    width: 30%;
+}
+.message .message-content{
+    width: 70%;
+
+}
+
+.message-content .name{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.message-content .time{
+    font-size: 12px;
+    margin-left: 80px;
+}
+
+.unread a{
+    color: white;
+    text-decoration: none;    
+}
+.unread a:hover{
+    background-color: gray;
+}
+
